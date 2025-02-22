@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ss12/footer/homeFooter.dart';
+import 'package:ss12/components/base/MainBody.dart';
+import 'package:ss12/components/base/footer/homeFooter.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -91,16 +92,9 @@ class _HomePageState extends State<HomePage>
     ],
   ),
 ),
-      body: Center(
-        child: FadeTransition(
-          opacity: _animation,
-          child: Text(
-            'Welcome to Home Page',
-            style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
-          ),
-        ),
-      ),
+      body: MainBody(),
       bottomNavigationBar: homeFooter(),
     );
   }
 }
+
