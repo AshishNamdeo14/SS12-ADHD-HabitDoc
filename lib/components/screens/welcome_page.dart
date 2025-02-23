@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ss12/components/rewards_screen/RewardPage.dart';
 import 'package:ss12/components/screens/avatar_select.dart';
 
 class WelcomePage extends StatelessWidget {

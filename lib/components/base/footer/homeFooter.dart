@@ -1,79 +1,93 @@
 import 'package:flutter/material.dart';
+import 'package:ss12/components/base/_home/HomePage.dart';
 import 'package:ss12/components/chat_screen/chat_screen.dart';
-import 'package:ss12/components/vr_characters/vr_Character.dart';
+import 'package:ss12/components/dailyTasks/DailyTaskPage.dart';
+import 'package:ss12/models/selectedapps.dart';
 
-/// Flutter code sample for [NavigationBar].
-
-void main() => runApp(const homeFooter());
-
-class homeFooter extends StatelessWidget {
-  const homeFooter({super.key});
+class homeFooter extends StatefulWidget {
+   final List<SelectedApp> selectedApps;
+  const homeFooter({super.key, required this.selectedApps});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      theme: ThemeData(useMaterial3: true),
-      home: const NavigationExample(),
-    );
+  _homeFooterState createState() => _homeFooterState();
+}
+
+class _homeFooterState extends State<homeFooter> {
+  int _selectedIndex = 2; // Tracks the selected tab
+
+  void _onDestinationSelected(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+
+    // Navigate based on selected index or destination
+    switch (index) {
+      case 0:
+         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ChatScreen()));
+        break;
+      case 1:
+       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => DailyTaskPage()));
+        break;
+      case 2:
+        print(
+          "Navigating to Home Page screen",
+        ); // Print message before navigation
+
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              print(
+                "Home Page screen is being built",
+              ); // Print when screen is built
+              return HomePage(selectedApps: widget.selectedApps);
+            },
+          ),
+        );
+
+        // Example: Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => HomePage()));
+        break;
+      case 3:
+        print(
+          "Navigating to PomodoroTimer screen",
+        ); // Print message before navigation
+
+        // Navigator.pushReplacement(
+        //   context,
+        //   MaterialPageRoute(
+        //     builder: (context) {
+        //       print(
+        //         "PomodoroTimer screen is being built",
+        //       ); // Print when screen is built
+        //       return PomodoroTimer();
+        //     },
+        //   ),
+        // );
+
+        break;
+      case 4:
+         Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => ChatScreen()));
+        break;
+    }
   }
-}
-
-class NavigationExample extends StatefulWidget {
-  const NavigationExample({super.key});
-
-  @override
-  State<NavigationExample> createState() => _NavigationExampleState();
-}
-
-class _NavigationExampleState extends State<NavigationExample> {
-  int currentPageIndex = 0;
 
   @override
   Widget build(BuildContext context) {
-    final ThemeData theme = Theme.of(context);
-    return Scaffold(
-      bottomNavigationBar: NavigationBar(
-        onDestinationSelected: (int index) {
-          setState(() {
-            currentPageIndex = index;
-          });
-        },
-        indicatorColor: Colors.blueAccent,
-        selectedIndex: currentPageIndex,
-        destinations: const <Widget>[
-          NavigationDestination(
-            icon: Badge(child: Icon(Icons.add_task)),
-            label: 'Add Tasks',
-          ),
-          NavigationDestination(
-            icon: Badge(child: Icon(Icons.dashboard)),
-            label: 'Dashboard',
-          ),
-          NavigationDestination(
-            selectedIcon: Icon(Icons.home),
-            icon: Icon(Icons.home_outlined),
-            label: 'Home',
-          ),
-          NavigationDestination(
-            icon: Badge(child: Icon(Icons.notifications_sharp)),
-            label: 'Timer',
-          ),
-          NavigationDestination(
-            icon: Badge(label: Text('2'), child: Icon(Icons.messenger_sharp)),
-            label: 'Doctor Dope',
-          ),
-        ],
-      ),
-      body:
-          <Widget>[
-            VrCharacter(),
-            ChatScreen(),
-            /// Notifications page
-            ChatScreen(),
-            /// Messages page
-            ChatScreen(),
-            ChatScreen(),
-          ][currentPageIndex],
+    return NavigationBar(
+      selectedIndex: _selectedIndex, // Set the selected tab
+      onDestinationSelected: _onDestinationSelected, // Handle navigation
+      indicatorColor: Colors.blueAccent,
+      destinations: const <NavigationDestination>[
+        NavigationDestination(icon: Icon(Icons.dashboard), label: 'Dashboard'),
+        NavigationDestination(icon: Icon(Icons.add_task), label: 'Add Task'),
+        NavigationDestination(
+          selectedIcon: Icon(Icons.home),
+          icon: Icon(Icons.home_outlined),
+          label: 'Home',
+        ),
+        NavigationDestination(icon: Icon(Icons.timer), label: 'Timer'),
+        NavigationDestination(icon: Icon(Icons.message), label: 'Messages'),
+      ],
     );
   }
 }

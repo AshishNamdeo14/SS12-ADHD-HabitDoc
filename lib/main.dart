@@ -1,9 +1,9 @@
-import 'package:camera/camera.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:ss12/components/common/camera/CameraProvider.dart';
-import 'package:ss12/components/common/splashScreen/SplashScreen.dart';
+import 'package:ss12/components/common/selectedApps/app_data_provider.dart';
+import 'package:ss12/components/screens/welcome_page.dart';
 
 void main() async {
   final cameraProvider = CameraProvider();
@@ -16,11 +16,14 @@ void main() async {
   }
 
    runApp(
-    ChangeNotifierProvider(
-      create: (_) => cameraProvider,
-      child: const MyApp(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CameraProvider()),
+        ChangeNotifierProvider(create: (context) => AppData()),
+      ],
+      child: MyApp(),
     ),
-  ); // Pass cameras to MyApp
+  );
 }
 
 class MyApp extends StatelessWidget { // Store cameras
@@ -35,7 +38,7 @@ class MyApp extends StatelessWidget { // Store cameras
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: SplashScreen(), // Pass cameras to SplashScreen
+      home: WelcomePage(), // Pass cameras to SplashScreen
     );
   }
 }

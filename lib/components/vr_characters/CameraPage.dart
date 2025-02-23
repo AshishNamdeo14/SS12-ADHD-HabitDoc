@@ -65,49 +65,43 @@ class _MyCamPageState extends State<MyCamPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Camera Page'),
-        backgroundColor: Colors.deepPurple,
-      ),
-      body: Center(
-        child: _isPermissionGranted
-            ? _isCameraInitialized
-                ? Stack(
-                    children: [
-                      CameraPreview(_cameraController!),// Camera preview
-                       AspectRatio(
-                        aspectRatio: _cameraController!.value.aspectRatio,
-                        child: CameraPreview(_cameraController!), // Camera preview
-                      ), 
-                      Positioned(
-                        bottom: 100, // Position the dummy character image
-                        left: 100,
-                        child: Image.asset(
-                          'assets/doc_Front.png', // Your dummy character image
-                          width: 100,
-                          height: 100,
-                        ),
-                      ),
-                    ],
-                  )
-                : const CircularProgressIndicator() // Loading indicator
-            : Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+  appBar: AppBar(
+    title: const Text('Camera Page'),
+    backgroundColor: Colors.deepPurple,
+  ),
+  body: Center(
+    child: _isPermissionGranted
+        ? _isCameraInitialized
+            ? Stack(
                 children: [
-                  const Icon(Icons.camera, size: 100, color: Colors.red),
-                  const SizedBox(height: 20),
-                  const Text(
-                    'Camera Permission Denied!',
-                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                  ),
-                  const SizedBox(height: 10),
-                  ElevatedButton(
-                    onPressed: _requestCameraPermission,
-                    child: const Text('Grant Permission'),
+                  CameraPreview(_cameraController!), // Camera preview
+                  Positioned(
+                    bottom: 100, // Position the dummy character image
+                    left: 100,
+                    child: Image.asset(
+                      'assets/doc_Front.png', // Your dummy character image
+                      width: 100,
+                      height: 100,
+                    ),
                   ),
                 ],
+              )
+            : const CircularProgressIndicator() // Loading indicator
+        : Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.camera, size: 100, color: Colors.red),
+              const SizedBox(height: 20),
+              const Text(
+                'Camera Permission Denied!',
+                style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-      ),
-    );
-  }
-}
+              const SizedBox(height: 10),
+              ElevatedButton(
+                onPressed: _requestCameraPermission,
+                child: const Text('Grant Permission'),
+              ),
+            ],
+          ),
+  ),
+);}}
