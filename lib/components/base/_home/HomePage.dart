@@ -57,10 +57,10 @@ class _HomePageState extends State<HomePage>
     return WillPopScope(
       onWillPop: () async => false, // Prevents back navigation
       child: Scaffold(
-        backgroundColor: const Color.fromARGB(255, 142, 183, 253),
+        backgroundColor:  Color(0xFF76B4B5),
         appBar: AppBar(
           automaticallyImplyLeading: false, // Hides the back button
-          backgroundColor: const Color.fromARGB(255, 142, 183, 253),
+          backgroundColor:  Color(0xFF76B4B5),
           title: Column(
             children: [
               Text(

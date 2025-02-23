@@ -87,7 +87,7 @@ class _homeFooterState extends State<homeFooter> {
           label: 'Home',
         ),
         NavigationDestination(icon: Icon(Icons.timer), label: 'Timer'),
-        NavigationDestination(icon: Icon(Icons.message), label: 'Dr Dope'),
+        NavigationDestination(icon: Icon(Icons.message), label: 'Dr. Dope'),
       ],
     );
   }

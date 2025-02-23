@@ -64,7 +64,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFF1C4C59),
+        backgroundColor: const Color(0xFF76B4B5),
         title: const Text(
           "HabitDoc AI Chatbot",
           style: TextStyle(

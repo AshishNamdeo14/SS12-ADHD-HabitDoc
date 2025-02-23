@@ -79,7 +79,8 @@ class _DailyTaskPageState extends State<DailyTaskPage> {
     double progress = (completedTasks / tasks.length);
 
     return Scaffold(
-      appBar: AppBar(title: Text("🎯 Daily Task Rewards")),
+      backgroundColor: Color(0xFF76B4B5),
+      appBar: AppBar(title: Text("🎯 Daily Task Rewards"), backgroundColor: Color(0xFF76B4B5)),
       body: Stack(
         children: [
           Padding(

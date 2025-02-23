@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 
 // Color palette
-const Color primaryColor = Color(0xFF367bc1);
+const Color primaryColor =  Color(0xFF76B4B5);
 const Color lightBackgroundColor = Color(0xFFf2f3f9);
 const Color darkPrimaryColor = Color(0xFF1c4c59);
 const Color accentColor = Color(0xFF76b4b5);

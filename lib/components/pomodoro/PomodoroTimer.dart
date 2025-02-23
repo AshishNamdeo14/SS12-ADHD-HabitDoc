@@ -223,7 +223,8 @@ class _PomodoroTimerState extends State<PomodoroTimer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Pomodoro Timer')),
+      backgroundColor:Color(0xFF76B4B5),
+      appBar: AppBar(title: Text('Pomodoro Timer'),backgroundColor:Color(0xFF76B4B5)),
       body: ListView.builder(
         itemCount: tasks.length,
         itemBuilder: (context, index) {
