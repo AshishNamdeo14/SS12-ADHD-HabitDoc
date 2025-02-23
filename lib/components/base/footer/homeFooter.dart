@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ss12/components/Pomodoro/pomodorotimer.dart';
 import 'package:ss12/components/base/_home/HomePage.dart';
 import 'package:ss12/components/chat_screen/chat_screen.dart';
 import 'package:ss12/components/dailyTasks/DailyTaskPage.dart';
@@ -46,24 +47,23 @@ class _homeFooterState extends State<homeFooter> {
           ),
         );
 
-        // Example: Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
         break;
       case 3:
         print(
           "Navigating to PomodoroTimer screen",
         ); // Print message before navigation
 
-        // Navigator.push(
-        //   context,
-        //   MaterialPageRoute(
-        //     builder: (context) {
-        //       print(
-        //         "PomodoroTimer screen is being built",
-        //       ); // Print when screen is built
-        //       return PomodoroTimer();
-        //     },
-        //   ),
-        // );
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) {
+              print(
+                "PomodoroTimer screen is being built",
+              ); // Print when screen is built
+              return PomodoroTimer();
+            },
+          ),
+        );
 
         break;
       case 4:
