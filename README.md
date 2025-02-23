@@ -18,7 +18,7 @@ Clone the repository:
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/HabbitDoc.git
+https://github.com/AshishNamdeo14/SS12-ADHD-HabitDoc
 Install Flutter dependencies:
 
 bash
