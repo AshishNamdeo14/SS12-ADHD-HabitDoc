@@ -80,14 +80,14 @@ class _homeFooterState extends State<homeFooter> {
       indicatorColor: Colors.blueAccent,
       destinations: const <NavigationDestination>[
         NavigationDestination(icon: Icon(Icons.dashboard), label: 'Dashboard'),
-        NavigationDestination(icon: Icon(Icons.add_task), label: 'Add Task'),
+        NavigationDestination(icon: Icon(Icons.add_task), label: 'Daily Tasks'),
         NavigationDestination(
           selectedIcon: Icon(Icons.home),
           icon: Icon(Icons.home_outlined),
           label: 'Home',
         ),
         NavigationDestination(icon: Icon(Icons.timer), label: 'Timer'),
-        NavigationDestination(icon: Icon(Icons.message), label: 'Messages'),
+        NavigationDestination(icon: Icon(Icons.message), label: 'Dr Dope'),
       ],
     );
   }
