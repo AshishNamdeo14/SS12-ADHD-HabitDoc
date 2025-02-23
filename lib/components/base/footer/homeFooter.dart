@@ -25,7 +25,7 @@ class _homeFooterState extends State<homeFooter> {
     // Navigate based on selected index or destination
     switch (index) {
       case 0:
-         Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardPage()));
+         Navigator.push(context, MaterialPageRoute(builder: (context) => ChartPage()));
         break;
       case 1:
        Navigator.push(context, MaterialPageRoute(builder: (context) => DailyTaskPage()));
