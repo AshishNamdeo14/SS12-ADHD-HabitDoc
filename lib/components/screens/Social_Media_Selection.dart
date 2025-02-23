@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ss12/components/base/_home/HomePage.dart';
 
 class SocialMediaScreen extends StatefulWidget {
   @override
@@ -86,7 +87,10 @@ class _SocialMediaScreenState extends State<SocialMediaScreen> {
                     backgroundColor: Color(0xFF1C4753),
                   ),
                   onPressed: () {
-                    _showSelectedApps();
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
                   },
                   child: Text('Submit', style: TextStyle(color: Colors.white)),
                 ),
@@ -98,34 +102,34 @@ class _SocialMediaScreenState extends State<SocialMediaScreen> {
     );
   }
 
-  void _showSelectedApps() {
-    List<String> selectedApps = [];
-    for (var app in socialMediaApps) {
-      if (app['selected']) {
-        selectedApps.add("${app['name']}: ${app['hours'].text} hours");
-      }
-    }
+  //   void _showSelectedApps() {
+  //     List<String> selectedApps = [];
+  //     for (var app in socialMediaApps) {
+  //       if (app['selected']) {
+  //         selectedApps.add("${app['name']}: ${app['hours'].text} hours");
+  //       }
+  //     }
 
-    showDialog(
-      context: context,
-      builder: (context) {
-        return AlertDialog(
-          title: Text("Your Selected Apps"),
-          content:
-              selectedApps.isEmpty
-                  ? Text("No apps selected.")
-                  : Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: selectedApps.map((app) => Text(app)).toList(),
-                  ),
-          actions: [
-            TextButton(
-              onPressed: () => Navigator.pop(context),
-              child: Text("OK"),
-            ),
-          ],
-        );
-      },
-    );
-  }
+  //     showDialog(
+  //       context: context,
+  //       builder: (context) {
+  //         return AlertDialog(
+  //           title: Text("Your Selected Apps"),
+  //           content:
+  //               selectedApps.isEmpty
+  //                   ? Text("No apps selected.")
+  //                   : Column(
+  //                     mainAxisSize: MainAxisSize.min,
+  //                     children: selectedApps.map((app) => Text(app)).toList(),
+  //                   ),
+  //           actions: [
+  //             TextButton(
+  //               onPressed: () => Navigator.pop(context),
+  //               child: Text("OK"),
+  //             ),
+  //           ],
+  //         );
+  //       },
+  //     );
+  //   }
 }

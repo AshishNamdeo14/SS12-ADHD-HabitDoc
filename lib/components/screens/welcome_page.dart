@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Desktop/ss12/SS12-ADHD-HabitDoc/lib/components/screens/avatar_select.dart';
+import 'package:ss12/components/screens/avatar_select.dart';
 
 class WelcomePage extends StatelessWidget {
   @override
@@ -28,7 +28,7 @@ class WelcomePage extends StatelessWidget {
                             Colors.white, // Background color for the circle
                         child: ClipOval(
                           child: Image.asset(
-                            'lib/assets/dr_dope.png', // Ensure this image is in the assets folder
+                            'assets/dr_dope.png', // Ensure this image is in the assets folder
                             height: 150, // Adjust as needed
                             width: 150, // Adjust as needed
                             fit:
@@ -53,7 +53,7 @@ class WelcomePage extends StatelessWidget {
                     Padding(
                       padding: EdgeInsets.all(12),
                       child: Text(
-                        'Im Dr.Dope, and I am here to help you detoxify your bad habits.',
+                        "I'm Dr.Dope, and I am here to help you detoxify your bad habits.",
                         textAlign: TextAlign.center,
                         style: TextStyle(
                           fontSize: 20,

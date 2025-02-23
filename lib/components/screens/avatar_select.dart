@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../../../../../main/lib/user_details_screen.dart'; // Import the next screen
+import 'package:ss12/components/screens/user_details_screen.dart';
 
 class AvatarSelectionScreen extends StatefulWidget {
   @override
@@ -10,12 +10,12 @@ class _AvatarSelectionScreenState extends State<AvatarSelectionScreen> {
   int? selectedAvatarIndex;
 
   final List<String> avatarImages = [
-    'lib/assets/avatar1.png',
-    'lib/assets/avatar2.png',
-    'lib/assets/avatar3.png',
-    'lib/assets/avatar4.png',
-    'lib/assets/avatar5.png',
-    'lib/assets/avatar6.png',
+    'assets/avatar1.png',
+    'assets/avatar2.png',
+    'assets/avatar3.png',
+    'assets/avatar4.png',
+    'assets/avatar5.png',
+    'assets/avatar6.png',
   ];
 
   @override
