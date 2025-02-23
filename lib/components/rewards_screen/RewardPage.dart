@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ss12/components/rewards_screen/RewardsDetailPage.dart';
+import 'package:ss12/components/rewards_screen/ArRewards.dart' as ar;
+import 'package:ss12/components/rewards_screen/RewardsDetailPage.dart' as rd;
+import 'package:ss12/components/vr_characters/vr_Character.dart';
 
 class RewardPage extends StatelessWidget {
   final List<String> rewards = ["Gold Coin", "Mystery Box", "Diamond", "Magic Potion", "XP Boost","AR Characters"];
@@ -19,18 +21,35 @@ class RewardPage extends StatelessWidget {
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () {
-              Navigator.push(
-                context,
-                PageRouteBuilder(
-                  pageBuilder: (_, __, ___) => RewardDetailPage(reward: rewards[index]),
-                  transitionsBuilder: (context, animation, secondaryAnimation, child) {
-                    return ScaleTransition(
-                      scale: animation,
-                      child: child,
-                    );
-                  },
-                ),
-              );
+               if (rewards[index] == "AR Characters") {
+                // Navigate to a different page for AR Characters
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => VrCharacter(),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      return FadeTransition(
+                        opacity: animation,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              } else {
+                // Default reward detail navigation
+                Navigator.push(
+                  context,
+                  PageRouteBuilder(
+                    pageBuilder: (_, __, ___) => rd.RewardDetailPage(reward: rewards[index]),
+                    transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                      return ScaleTransition(
+                        scale: animation,
+                        child: child,
+                      );
+                    },
+                  ),
+                );
+              }
             },
             child: Card(
               elevation: 5,

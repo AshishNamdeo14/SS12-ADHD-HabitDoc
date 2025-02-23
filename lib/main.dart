@@ -15,14 +15,11 @@ void main() async {
     print("Error: ${e.toString()}"); // Print error if Firebase fails to initialize
   }
 
-   runApp(
-    MultiProvider(
-      providers: [
-        ChangeNotifierProvider(create: (context) => CameraProvider()),
-        ChangeNotifierProvider(create: (context) => AppData()),
-      ],
-      child: MyApp(),
-    ),
+runApp(
+    ChangeNotifierProvider(
+      create: (_) => cameraProvider,
+      child: const MyApp()
+      ) // Pass cameras to MyApp
   );
 }
 
