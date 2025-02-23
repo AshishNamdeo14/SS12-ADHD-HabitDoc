@@ -41,7 +41,7 @@ class _MyCamPageState extends State<MyCamPage> {
     if (cameras.isNotEmpty) {
       _cameraController = CameraController(
         cameras[0], // Use the first available camera
-        ResolutionPreset.medium,
+        ResolutionPreset.veryHigh,
       );
 
       try {
@@ -74,7 +74,11 @@ class _MyCamPageState extends State<MyCamPage> {
             ? _isCameraInitialized
                 ? Stack(
                     children: [
-                      CameraPreview(_cameraController!), // Camera preview
+                      CameraPreview(_cameraController!),// Camera preview
+                       AspectRatio(
+                        aspectRatio: _cameraController!.value.aspectRatio,
+                        child: CameraPreview(_cameraController!), // Camera preview
+                      ), 
                       Positioned(
                         bottom: 100, // Position the dummy character image
                         left: 100,
