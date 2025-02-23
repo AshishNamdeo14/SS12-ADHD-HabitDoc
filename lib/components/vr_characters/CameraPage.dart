@@ -72,7 +72,20 @@ class _MyCamPageState extends State<MyCamPage> {
       body: Center(
         child: _isPermissionGranted
             ? _isCameraInitialized
-                ? CameraPreview(_cameraController!) // Show camera preview
+                ? Stack(
+                    children: [
+                      CameraPreview(_cameraController!), // Camera preview
+                      Positioned(
+                        bottom: 100, // Position the dummy character image
+                        left: 100,
+                        child: Image.asset(
+                          'assets/doc_Front.png', // Your dummy character image
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                    ],
+                  )
                 : const CircularProgressIndicator() // Loading indicator
             : Column(
                 mainAxisAlignment: MainAxisAlignment.center,
