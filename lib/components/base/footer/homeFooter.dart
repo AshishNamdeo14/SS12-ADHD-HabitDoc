@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ss12/components/base/_home/HomePage.dart';
 import 'package:ss12/components/chat_screen/chat_screen.dart';
 import 'package:ss12/components/dailyTasks/DailyTaskPage.dart';
+import 'package:ss12/components/dashboard/DashboardPage.dart';
 import 'package:ss12/models/selectedapps.dart';
 
 class homeFooter extends StatefulWidget {
@@ -23,7 +24,7 @@ class _homeFooterState extends State<homeFooter> {
     // Navigate based on selected index or destination
     switch (index) {
       case 0:
-         Navigator.push(context, MaterialPageRoute(builder: (context) => ChatScreen()));
+         Navigator.push(context, MaterialPageRoute(builder: (context) => DashboardPage()));
         break;
       case 1:
        Navigator.push(context, MaterialPageRoute(builder: (context) => DailyTaskPage()));
