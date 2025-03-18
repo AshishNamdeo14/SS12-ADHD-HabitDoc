@@ -56,7 +56,6 @@ Some Images of the Product
 <img src="https://github.com/user-attachments/assets/46e523d4-1246-4542-9c75-174358ff98b2" width="300"/>
 <img src="https://github.com/user-attachments/assets/4c6265e7-4048-4391-925a-6c3ca38b88ae" width="300"/>
 <img src="https://github.com/user-attachments/assets/0e55eaf3-ade0-43a2-af1a-ba0e635b0f1b" width="300"/>
-<img src="https://github.com/user-attachments/assets/b2b9fce0-d4e8-46dd-9f3f-3f784bca0947" width="300"/>
 
 
 
